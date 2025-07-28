@@ -12,9 +12,14 @@ if (function_exists('add_action')) {
 
 if (!function_exists('wdm_sync_start_callback')) {
     function wdm_sync_start_callback($request) {
+        // Run the sync workflow
+        $sync_result = wdm_sync_workflow();
+        
         return new WP_REST_Response([
             'success' => true,
-            'message' => 'Sync started successfully.'
+            'message' => 'Sync started successfully.',
+            'live_site_url' => $sync_result['live_site_url'],
+            'sync_result' => $sync_result
         ], 200);
     }
 }

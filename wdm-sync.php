@@ -20,6 +20,9 @@ if (!defined('ABSPATH')) {
 // Include custom REST API endpoint
 require_once __DIR__ . '/includes/api-sync.php';
 
+// Include sync workflow
+require_once __DIR__ . '/includes/sync-workflow.php';
+
 // Add admin menu
 add_action('admin_menu', 'wdm_sync_add_admin_menu');
 
@@ -42,6 +45,30 @@ function wdm_sync_init_settings() {
     register_setting('wdm_sync_options', 'wdm_sync_settings');
 }
 
-
 // Include admin page frontend
 require_once __DIR__ . '/includes/admin-page.php';
+
+// Activation hook
+register_activation_hook(__FILE__, 'wdm_sync_activate');
+
+function wdm_sync_activate() {
+    // Set default options
+    $default_settings = array(
+        'live_site_url' => '',
+        'schedule_enabled' => false,
+        'schedule_interval' => 'hourly'
+    );
+    
+    add_option('wdm_sync_settings', $default_settings);
+    
+    // Clear any existing scheduled events
+    wdm_sync_clear_cron();
+}
+
+// Deactivation hook
+register_deactivation_hook(__FILE__, 'wdm_sync_deactivate');
+
+function wdm_sync_deactivate() {
+    // Clear scheduled events
+    wdm_sync_clear_cron();
+}
