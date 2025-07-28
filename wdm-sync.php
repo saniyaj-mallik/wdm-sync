@@ -17,6 +17,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Include custom REST API endpoint
+require_once __DIR__ . '/includes/api-sync.php';
+
 // Add admin menu
 add_action('admin_menu', 'wdm_sync_add_admin_menu');
 
