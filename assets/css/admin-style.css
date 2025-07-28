@@ -1,0 +1,99 @@
+/* WDM Sync Admin Styles */
+
+.wdm-sync-info {
+    background: #f9f9f9;
+    border-left: 4px solid #0073aa;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+.wdm-sync-info h3 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.wdm-sync-info p {
+    margin: 8px 0;
+}
+
+.wdm-sync-status {
+    font-weight: bold;
+}
+
+.wdm-sync-status.enabled {
+    color: #46b450;
+}
+
+.wdm-sync-status.disabled {
+    color: #dc3232;
+}
+
+/* Settings form styling */
+.wdm-sync-settings .form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+}
+
+.wdm-sync-settings .form-table td {
+    padding: 15px 10px;
+}
+
+.wdm-sync-settings input[type="text"] {
+    width: 400px;
+}
+
+.wdm-sync-settings input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Section headers */
+.wdm-sync-settings h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Success/Error messages */
+.wdm-sync-notice {
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.wdm-sync-notice.success {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.wdm-sync-notice.error {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.wdm-sync-notice.warning {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+/* Responsive design */
+@media (max-width: 782px) {
+    .wdm-sync-settings .form-table th {
+        width: 100%;
+        display: block;
+        padding-bottom: 0;
+    }
+    
+    .wdm-sync-settings .form-table td {
+        display: block;
+        padding-left: 0;
+    }
+    
+    .wdm-sync-settings input[type="text"] {
+        width: 100%;
+    }
+} 
